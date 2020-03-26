@@ -23,7 +23,7 @@ const decipher = (alfa, char) => {
     return char;
   }
 
-  const posDecoded = posAlfa - 3
+  const posDecoded = posAlfa - 6
 
   if (posDecoded >= 0) {
     return alfa[posDecoded];
@@ -75,7 +75,7 @@ const sendData = async () => {
 challenge().then(challenge => {
   const { cifrado, numero_casas } = challenge
 
-  challenge.decifrado = decipherChar(cifrado, 3)
+  challenge.decifrado = decipherChar(cifrado, 6)
 
   challenge.resumo_criptografico = cryptoSummary(challenge.decifrado)
 
