@@ -1,0 +1,17 @@
+{
+  "name": "desafio-criptografia",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/app"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "form-data": "^3.0.0",
+    "http": "^0.0.1-security",
+    "js-sha1": "^0.6.0",
+    "node-fetch": "^2.6.0",
+    "request": "^2.88.2"
+  }
+}
