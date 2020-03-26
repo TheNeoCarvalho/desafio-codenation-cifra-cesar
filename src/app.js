@@ -8,7 +8,7 @@ const { createReadStream } = require('fs')
 
 const api = require('./services/api')
 
-const TOKEN = "b2f92262f536d68df429eb89ece7375c2823ad52"
+const TOKEN = "983f754e55b100687d866e6960b33d7ed24da4c8"
 
 const challenge = async () => {
   const { data } = await api.get(`/generate-data?token=${TOKEN}`)
@@ -23,7 +23,7 @@ const decipher = (alfa, char) => {
     return char;
   }
 
-  const posDecoded = posAlfa - 6
+  const posDecoded = posAlfa - 3
 
   if (posDecoded >= 0) {
     return alfa[posDecoded];
@@ -63,6 +63,7 @@ const sendData = async () => {
     {
       url: `https://api.codenation.dev/v1/challenge/dev-ps/submit-solution?token=${TOKEN}`,
       method: 'POST',
+      headers: { 'Content-Type': 'multipart/form-data' },
       headers: form.getHeaders(),
     }
     );
@@ -72,9 +73,9 @@ const sendData = async () => {
 }
 
 challenge().then(challenge => {
-  const { cifrado } = challenge
+  const { cifrado, numero_casas } = challenge
 
-  challenge.decifrado = decipherChar(cifrado, 6)
+  challenge.decifrado = decipherChar(cifrado, 3)
 
   challenge.resumo_criptografico = cryptoSummary(challenge.decifrado)
 
