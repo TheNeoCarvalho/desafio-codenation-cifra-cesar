@@ -8,7 +8,7 @@ const { createReadStream } = require('fs')
 
 const api = require('./services/api')
 
-const TOKEN = "983f754e55b100687d866e6960b33d7ed24da4c8"
+const TOKEN = "b2f92262f536d68df429eb89ece7375c2823ad52"
 
 const challenge = async () => {
   const { data } = await api.get(`/generate-data?token=${TOKEN}`)
